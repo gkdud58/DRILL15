@@ -38,6 +38,10 @@ def init():
     game_world.add_oject(grass, 0)
     game_world.add_objects(balls, 1)
 
+    global zombies
+    zombies = [Zombie() for _ in range(4)]
+    game_world.add_objects(zombies, 1)
+
     # 소년과 볼 간의 충돌 감지를 위해 충돌 페어 등록
     game_world.add_collision_pairs("boy:ball",boy, None)
     for ball in balls:

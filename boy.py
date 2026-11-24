@@ -98,7 +98,7 @@ class Run:
 
 class Boy:
     def __init__(self):
-        self.font = load_font('ENCR10B.TTF', 16)
+        self.font = Font('ENCR10B.TTF', 16)
         self.x, self.y = 400, 90
         self.frame = 0
         self.image = load_image('animation_sheet.png')
