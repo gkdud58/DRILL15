@@ -44,11 +44,12 @@ def collide(a, b):
 
 collision_pairs = {}
 
-def add_collision_pairs(group, a, b):
+def add_collision_pairs(group, a, b,c):
     if group not in collision_pairs:
-        collision_pairs[group] = [[],[]]
+        collision_pairs[group] = [[],[],[]]
     if a: collision_pairs[group][0].append(a)
     if b: collision_pairs[group][1].append(b)
+    if c: collision_pairs[group][2].append(c)
 
 def handle_collision():
     for group, pairs in collision_pairs.items():
@@ -68,3 +69,4 @@ def remove_collision_pairs(o):
 def clear():
     for layer in world:
         layer.clear()
+

@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 리소스 파일 경로 기준을 이 폴더로 고정
+
 from pico2d import open_canvas, close_canvas
 import game_framework
 
