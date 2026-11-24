@@ -43,12 +43,13 @@ def init():
     game_world.add_objects(zombies, 1)
 
     # 소년과 볼 간의 충돌 감지를 위해 충돌 페어 등록
-    game_world.add_collision_pairs("boy:ball:zombie",boy, None,None)
+    game_world.add_collision_pairs("boy:ball",boy, None)
     for ball in balls:
-        game_world.add_collision_pairs("boy:ball:zombie", None,None, ball)
-    for zombie in zombies:
-        game_world.add_collision_pairs("boy:ball:zombie",None,None,zombie)
+        game_world.add_collision_pairs("boy:ball", None, ball)
 
+    game_world.add_collision_pairs("boy:zombie",boy,None)
+    for zombie in zombies:
+        game_world.add_collision_pairs("boy:zombie", None, zombie)
 def pause():
     boy.pause()
 
