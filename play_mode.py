@@ -7,7 +7,7 @@ from grass import Grass
 from ball import Ball
 from zombie import Zombie
 import random
-
+import zombie
 
 boy = None
 
@@ -49,9 +49,6 @@ def init():
     for ball in balls:
         game_world.add_collision_pairs("boy:ball", None, ball)
 
-    game_world.add_collision_pairs("zombie:ball", ball, None)
-    for ball in balls:
-        game_world.add_collision_pairs("zombie:ball", None, ball)
 
     game_world.add_collision_pairs("ball:zombie", ball, None)
     for zombie in zombies:
