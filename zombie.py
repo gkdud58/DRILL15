@@ -56,7 +56,11 @@ class Zombie:
 
     def get_bb(self):
         return self.x - 100, self.y - 100, self.x + 100, self.y + 100
-    
+
+
     def handle_collision(self, group, other): 
         if group == 'ball:zombie':
             game_world.remove_object(self)
+    
+            
+    
