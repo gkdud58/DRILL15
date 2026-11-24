@@ -191,6 +191,11 @@ class Boy:
         if group == 'boy:ball':
             self.ball_count += 1
             game_world.remove_object(other)
+<<<<<<< HEAD
 
         if group == 'boy:zombie':
             close_canvas()
+=======
+        elif group == 'boy:zombie':
+            game_framework.quit()
+>>>>>>> c6d7fc9189674e1a29eee3b1ee9fc4ebedf89ea3
