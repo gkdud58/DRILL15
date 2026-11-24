@@ -42,12 +42,11 @@ def collide(a, b):
         
     return True
 
-
 collision_pairs = {}
 
 def add_collision_pairs(group, a, b):
     if group not in collision_pairs:
-        collision_pairs[group] = [[],[],[]]
+        collision_pairs[group] = [[],[]]
     if a: collision_pairs[group][0].append(a)
     if b: collision_pairs[group][1].append(b)
 
@@ -58,7 +57,6 @@ def handle_collision():
                    if collide(a, b):
                         a.handle_collision(group, b)
                         b.handle_collision(group, a)
-
 def remove_collision_pairs(o):
     for pairs in collision_pairs.values():
         if o in pairs[0]:

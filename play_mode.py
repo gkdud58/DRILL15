@@ -50,6 +50,11 @@ def init():
     game_world.add_collision_pairs("boy:zombie",boy,None)
     for zombie in zombies:
         game_world.add_collision_pairs("boy:zombie", None, zombie)
+
+    game_world.add_collision_pairs("zombie:ball",ball,None)
+    for zombie in zombies:
+        game_world.add_collision_pairs("zombie:ball",None, zombie)
+        
 def pause():
     boy.pause()
 

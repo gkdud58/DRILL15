@@ -18,7 +18,8 @@ ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAMES_PER_ACTION = 10
 
 MIN_X, MAX_X = 800, 1600  # 좀비가 오가는 구간
-
+COUNT = 0
+HIT = 0
 
 class Zombie:
     images = None
@@ -31,7 +32,7 @@ class Zombie:
 
     def __init__(self):
         self.load_images()
-        self.x, self.y = random.randint(MIN_X, MAX_X), 150
+        self.x, self.y =random.randint(MIN_X, MAX_X), 150
         self.frame = random.randint(0, 9)
         self.dir = random.choice([-1, 1])
 
@@ -48,11 +49,23 @@ class Zombie:
     def draw(self):
         image = Zombie.images['Walk'][int(self.frame)]
         if self.dir < 0:
-            image.composite_draw(0, 'h', self.x, self.y, 200, 200)
+            if HIT == 1:
+                image.clip_composite_draw(0, 'h', self.x, self.y, 100, 100)
+            else :
+                image.composite_draw(0, 'h', self.x, self.y, 200, 200)
         else:
+            if HIT == 1:
+                image.draw(self.x, self.y, 100, 100)
             image.draw(self.x, self.y, 200, 200)
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):
         return self.x - 100, self.y - 100, self.x + 100, self.y + 100
    
+def handle_collision(self, group, other): 
+        if group == 'zombie:ball':
+            COUNT+=1
+            if(COUNT == 2):
+                game_world.remove_object(self)
+            elif(COUNT == 1):
+                HIT = 1
