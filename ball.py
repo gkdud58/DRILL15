@@ -33,7 +33,7 @@ class Ball:
         self.velocity_y -= GRAVITY * dt
         if (self.x < -self.radius or self.x > get_canvas_width() + self.radius
                 or self.y-10 - self.radius <= GROUND_Y):
-            self.stopped = True
+            self.stopped = False
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -46,3 +46,13 @@ class Ball:
     def handle_collision(self, group, other): 
         if group == 'boy:ball':
             game_world.remove_object(self)
+            print("일반충돌")
+
+        if group == 'zombie:ball':
+            print("공 충돌")
+            game_world.remove_object(other)
+        
+
+        
+
+        

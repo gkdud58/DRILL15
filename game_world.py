@@ -68,4 +68,3 @@ def remove_collision_pairs(o):
 def clear():
     for layer in world:
         layer.clear()
-

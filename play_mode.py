@@ -1,4 +1,5 @@
 from pico2d import *
+import ball
 import game_world
 import game_framework
 from boy import Boy
@@ -6,6 +7,7 @@ from grass import Grass
 from ball import Ball
 from zombie import Zombie
 import random
+
 
 boy = None
 
@@ -43,9 +45,19 @@ def init():
     game_world.add_objects(zombies, 1)
 
     # 소년과 볼 간의 충돌 감지를 위해 충돌 페어 등록
-    game_world.add_collision_pairs("boy:ball",boy, None)
+    game_world.add_collision_pairs("boy:ball", boy, None)
     for ball in balls:
         game_world.add_collision_pairs("boy:ball", None, ball)
+
+    game_world.add_collision_pairs("zombie:ball", ball, None)
+    for ball in balls:
+        game_world.add_collision_pairs("zombie:ball", None, ball)
+
+    game_world.add_collision_pairs("ball:zombie", ball, None)
+    for zombie in zombies:
+        game_world.add_collision_pairs("ball:zombie", None, zombie)
+
+
 
 def pause():
     boy.pause()

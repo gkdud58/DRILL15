@@ -1,4 +1,5 @@
 import random
+from tokenize import group
 
 from pico2d import load_image, draw_rectangle, clamp
 
@@ -55,3 +56,8 @@ class Zombie:
 
     def get_bb(self):
         return self.x - 100, self.y - 100, self.x + 100, self.y + 100
+    
+    def handle_collision(self, group, other): 
+        if group == 'ball:zombie':
+            print("좀비 충돌")
+            game_world.remove_object(other)
