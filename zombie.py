@@ -61,3 +61,7 @@ class Zombie:
         if group == 'ball:zombie':
             print("좀비 충돌")
             game_world.remove_object(self)
+
+        if group == 'ball:zombie':
+            print("좀비 충돌")
+            game_world.remove_object(self)
